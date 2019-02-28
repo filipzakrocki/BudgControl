@@ -135,7 +135,7 @@ const obiekt = () => {
 
 //iife
 // BUDGET CONTROLLER}
-const budgetController = () => {
+let budgetController = () => {
     
     
     //Expense Class and associated Methods
@@ -193,7 +193,9 @@ const budgetController = () => {
     
     return {
         
-        
+        test () {
+            console.log('test');
+        },
         
         //returned functions
         
@@ -267,7 +269,9 @@ const budgetController = () => {
             console.log(data);
         }
   };
-}
+};
+
+budgetController();
 
 
 
