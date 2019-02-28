@@ -123,8 +123,18 @@
 //})();
 
 
+const obiekt = () => {
+    let a,b,c;
+    a = 1;
+    b = 2;
+    c = 3;
+    return {
+        a,b,c
+    }
+}
 
-// BUDGET CONTROLLER
+//iife
+// BUDGET CONTROLLER}
 const budgetController = () => {
     
     
@@ -183,9 +193,7 @@ const budgetController = () => {
     
     return {
         
-        test()  {
-            console.log('completed');
-        },
+        
         
         //returned functions
         
@@ -226,39 +234,38 @@ const budgetController = () => {
             calculateTotal("inc");
             
             data.budget = data.totals.inc - data.totals.exp;
-
-      if (data.totals.inc > 0) {
-        data.percentage = Math.round(data.totals.exp / data.totals.inc * 100);
-      } else {
-        data.percentage = -1;
-      }
-    },
-
-    calculatePercentages: function() {
-      data.allItems.exp.forEach(function(cur) {
-        cur.calcPercentage(data.totals.inc);
-      });
-    },
-
-    getPercentages: function() {
-      var allPerc = data.allItems.exp.map(function(cur) {
-        return cur.getPercentage();
-      });
-      return allPerc;
-    },
-
-    getBudget: function() {
-      return {
-        budget: data.budget,
-        totalInc: data.totals.inc,
-        totalExp: data.totals.exp,
-        percentage: data.percentage
-      };
-    },
-
-    testing: function() {
-      console.log(data);
-    }
+            if (data.totals.inc > 0) {
+                data.percentage = Math.round(data.totals.exp / data.totals.inc * 100);
+            } else {
+                data.percentage = -1;
+            }
+        },
+        
+        calculatePercentages: function() {
+            data.allItems.exp.forEach(function(cur) {
+                cur.calcPercentage(data.totals.inc);
+            });
+        },
+        
+        getPercentages: function() {
+            var allPerc = data.allItems.exp.map(function(cur) {
+                return cur.Percentage();
+            });
+            return allPerc;
+        },
+        
+        getBudget: function() {
+            return {
+                budget: data.budget,
+                totalInc: data.totals.inc,
+                totalExp: data.totals.exp,
+                percentage: data.percentage
+            };
+        },
+        
+        testing: function() {
+            console.log(data);
+        }
   };
 }
 
@@ -275,9 +282,9 @@ const budgetController = () => {
 
 
 
-
 // UI CONTROLLER
 var UIController = (function() {
+    
   var DOMstrings = {
     inputType: ".add__type",
     inputDescription: ".add__description",
